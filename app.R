@@ -96,12 +96,12 @@ server <- function(input, output,session) {
   
   parameterFile <- shinymeta::metaReactive({read.csv(..(parameterFileName()))})
   
-  observeEvent(input$parameterFle,{
+  observeEvent(parameterFile(),{
     shiny::updateSelectizeInput(inputId="smpIDs",choices=parameterFile()$SampleLabel)
   })
   
   parametersSubset <- reactive({
-    req(input$parameterFle)
+    req(parameterFile())
     parameterFile()[match(input$smpIDs,parameterFile()$SampleLabel),]
   })
   
