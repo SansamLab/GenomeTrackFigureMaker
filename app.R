@@ -85,7 +85,7 @@ server <- function(input, output,session) {
   Width_pxls <- reactive({input$width*72})
   
   
-  parameterFileName <- shinymeta::metaReactive(function() {
+  parameterFileName <- shinymeta::metaReactive({
   if (is.null(input$parameterFle))
     "data/example.csv"
   else
