@@ -45,7 +45,10 @@ ui <- fluidPage(
         column(2,shiny::numericInput("relLineWidthHist",label = "Histogram Line Width:",value=1,min=0)),
         column(2,shiny::numericInput("IdeogramMarkerSize",label = "Ideogram marker size:",value=1,min=0)),
         column(2,shiny::numericInput("fontSize",label = "Font size:",value=10,min=0)),
-        column(2,shiny::numericInput("fontScale",label = "Label font scale:",value=1,min=0))))
+        column(2,shiny::numericInput("fontScale",label = "Label font scale:",value=1,min=0)))),
+    wellPanel(fluidRow(
+      plotOutput("plot")
+      ))
     
   )
 )
@@ -128,7 +131,7 @@ server <- function(input, output,session) {
   })
   
   
-  renderPlot({
+  output$plot <- renderPlot({
     req(parametersSubset())
     makeGenomeTrackPlot(gtrack(),
                         gtrack2(),
