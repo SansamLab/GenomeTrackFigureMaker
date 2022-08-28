@@ -55,7 +55,7 @@ server <- function(input, output,session) {
   
   library(Gviz)
   library(shinymeta)
-  source("inst/helpers.R")
+  source("helpers.R")
   
 
   gtrack <- shinymeta::metaReactive({Gviz::GenomeAxisTrack()})
