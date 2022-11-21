@@ -92,7 +92,7 @@ server <- function(input, output,session) {
   if (is.null(input$parameterFle))
     "data/example.csv"
   else
-    input$parameterFle$name
+    input$parameterFle$datapath
 })
   
   #parameterFile <- reactive({read.csv(input$parameterFle$name)})
