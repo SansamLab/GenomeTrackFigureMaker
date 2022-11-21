@@ -70,7 +70,7 @@ makeGenomeTrackPlot <- function(GenomeAxisTrack,
             trackList = list(
               Gviz::DataTrack(
                 range = SampleBwFiles[[rw$SampleLabel]],
-                genome = "hg19", 
+                genome = "hg38", 
                 type = "hist", 
                 col=rw$SampleColor,
                 col.histogram=rw$SampleColor,
@@ -84,7 +84,7 @@ makeGenomeTrackPlot <- function(GenomeAxisTrack,
                 cex.title=LabelFontScale),
               Gviz::DataTrack(
                 range = ControlBwFiles[[rw$SampleLabel]],
-                genome = "hg19", 
+                genome = "hg38", 
                 type = "hist", 
                 lwd = relativeLineWidthHist,
                 col=rw$ControlColor,
@@ -118,7 +118,7 @@ makeGenomeTrackPlot <- function(GenomeAxisTrack,
     
     ideogramTrack <- IdeogramTrackList[[Chromosome]]
     
-    #ideogramTrack <- Gviz::IdeogramTrack(genome = "hg19", chromosome = Chromosome)
+    #ideogramTrack <- Gviz::IdeogramTrack(genome = "hg38", chromosome = Chromosome)
     
     Gviz::displayPars(GenomeAxisTrack)$lwd <- relativeLineWidthGenomeAxis 
     Gviz::displayPars(ideogramTrack)$lwd <- IdeogramMarkerSize
@@ -222,7 +222,7 @@ plotFunctionText <- quote(
               trackList = list(
                 Gviz::DataTrack(
                   range = SampleBwFiles[[rw$SampleLabel]],
-                  genome = "hg19", 
+                  genome = "hg38", 
                   type = "hist", 
                   col=rw$SampleColor,
                   col.histogram=rw$SampleColor,
@@ -236,7 +236,7 @@ plotFunctionText <- quote(
                   cex.title=LabelFontScale),
                 Gviz::DataTrack(
                   range = ControlBwFiles[[rw$SampleLabel]],
-                  genome = "hg19", 
+                  genome = "hg38", 
                   type = "hist", 
                   lwd = relativeLineWidthHist,
                   col=rw$ControlColor,

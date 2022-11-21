@@ -63,7 +63,7 @@ server <- function(input, output,session) {
 
   gtrack <- shinymeta::metaReactive({Gviz::GenomeAxisTrack()})
   gtrack2 <- shinymeta::metaReactive({Gviz::GenomeAxisTrack(scale=..(input$scaleSize))})
-  txTr <- shinymeta::metaReactive({readRDS('data/hg19_txTr.rds')})
+  txTr <- shinymeta::metaReactive({readRDS('data/hg38_txTr.rds')})
   itrack_ls <- shinymeta::metaReactive({readRDS('data/itrack_ls.rds')})
   
   
