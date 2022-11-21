@@ -12,3 +12,15 @@ BiocManager::install("Gviz")
 
 runGitHub( "GenomeTrackFigureMaker", "SansamLab")
 ```
+
+
+1.  Open R Studio.
+2.  Set working directory to where your parameters file is stored.
+```r
+setwd("/DirectoryWhereMyParametersFileIsSaved")
+```
+3.  Download and run this App
+```r
+runGitHub( "GenomeTrackFigureMaker", "SansamLab",destdir = "../")
+```
+**_NOTE:_**  The defauault working directory when the app is run will be the location of the app.R file. Therefore, it is crucial that the relative paths of the app.R and parameters file are at the same level. This ensures that relationships of the paths of files listed in the parameters file are maintained.
