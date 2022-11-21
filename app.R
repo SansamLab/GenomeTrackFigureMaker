@@ -48,7 +48,13 @@ ui <- fluidPage(
         column(2,shiny::numericInput("fontScale",label = "Label font scale:",value=1,min=0)))),
     wellPanel(fluidRow(
       plotOutput("plot")
-      ))
+      )),
+    wellPanel(fluidRow(
+      column(4,shiny::numericInput("width", label = "Width:",value=4,min=0)),
+      column(4,shiny::numericInput("height",label = "Height:",value=2,min=0)),
+      column(4,downloadButton("downloadPlot","Download Plot"),
+      ))),
+    wellPanel(verbatimTextOutput("metaCode"))
     
   )
 )
@@ -173,13 +179,7 @@ server <- function(input, output,session) {
     }
   )
   
-  shiny::fluidPage(wellPanel(fluidRow(
-    column(4,shiny::numericInput("width", label = "Width:",value=4,min=0)),
-    column(4,shiny::numericInput("height",label = "Height:",value=2,min=0)),
-    column(4,downloadButton("downloadPlot","Download Plot"),
-    ))))
-  
-  renderPrint({
+  output$metaCode <- renderPrint({
     shinymeta::expandChain(
       plotFunctionText,
       invisible(gtrack()),
