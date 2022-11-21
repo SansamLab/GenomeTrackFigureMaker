@@ -1,6 +1,14 @@
 # GenomeTrackFigureMaker
 
 ```r
+GenomicFeatures::makeTxDbFromUCSC(
+  genome="hg38",
+  tablename="ccdsGene") %>%
+  Gviz::GeneRegionTrack(.,collapseTracks=T,background.title = "black",name="Gene",fill="black") %>%
+  saveRDS(.,file="hg38_txTr.rds")
+```
+
+```r
 install.packages("shiny")
 install.packages("shinybusy")
 install("shinymeta")
