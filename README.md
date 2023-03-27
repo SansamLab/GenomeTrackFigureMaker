@@ -1,5 +1,22 @@
 # GenomeTrackFigureMaker
 
+## What does this app do?
+This Shiny application creates a genome track plot based on a user-provided CSV file. The server code defines several reactive expressions and observers that update plot parameters based on user input. The output plot is generated using the makeGenomeTrackPlot() function, which is called with various input parameters based on user selections. Finally, the metaCode output provides the R code for generating the plot, which can be useful for debugging and reproducing the plot outside of the Shiny app.
+
+## Description of columns in .csv parameters file
+The .csv file should contain the following information for each track to be plotted:
+
+- "SampleLabel": A label for the sample track.
+- "SampleFilename": The filename or path of the sample data file in a format supported by Gviz (e.g., bigWig, bedGraph, BAM, etc.).
+- "SampleColor": The color to use for the sample track in the plot.
+- "ControlLabel": A label for the control track (if applicable).
+- "ControlFilename": The filename or path of the control data file in a format supported by Gviz (e.g., bigWig, bedGraph, BAM, etc.) (if applicable).
+- "ControlColor": The color to use for the control track in the plot (if applicable).
+
+Each row in the .csv file corresponds to a single track to be plotted, and the "SampleLabel" should match the label of the track selected by the user in the Shiny app. The file should be structured such that each track has its own row, and the columns are comma-separated.
+
+
+
 ```r
 GenomicFeatures::makeTxDbFromUCSC(
   genome="hg38",
